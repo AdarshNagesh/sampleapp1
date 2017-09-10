@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Admin Login</title>
+
+    <!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+	  <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
+  </head>
+
+  <body>
+    <header></header>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong><em>Varsha Enclave</em></strong></a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="show visible-xs-block">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li role="presentation"><a>Welcome {{adminname}}</a></li>
+                  <li role="presentation"><a (click)="adminlogout()">Logout</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
+        </div>
+        
+    </nav>
+    <br>
+    <br>
+    <br>
+    <ul class="nav nav-tabs nav-justified">
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/AdminHome"><i class="glyphicon glyphicon-arrow-left"></i> Back to Home</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Announcements">Announcements</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Employees">Employees</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Rooms">Rooms</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Customers">Customers</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Logistics">Logistics</button></li>
+            
+            
+    </ul>
+         <!-- /container -->
+     <!--     <div class="col-sm-2">
+            <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Announcements">Announcements</button></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Employees">Employees</button></div>
+        </div>
+        <br>
+        <div class="row" >
+          <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Rooms">Rooms</button></div>
+          
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/customers">Customers</button></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Logistics">Logistics</button></div>
+        </div>
+     </div> -->
+     <div class="col-sm-8 col-sm-offset-1 table-responsive">
+        <span><h3>Need to implement CRUD on Customers</h3></span>
+       </div>
+       
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

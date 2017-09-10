@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Admin Login</title>
+
+    <!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+	  <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
+  </head>
+
+  <body>
+    <header></header>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong><em>Varsha Enclave</em></strong></a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="show visible-xs-block">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li role="presentation"><a>Welcome {{adminname}}</a></li>
+                  <li role="presentation"><a (click)="adminlogout()">Logout</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
+        </div>
+        
+    </nav>
+    <br>
+    <br>
+    <br>
+    <ul class="nav nav-tabs nav-justified">
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/AdminHome"><i class="glyphicon glyphicon-arrow-left"></i> Back to Home</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Announcements">Announcements</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Employees">Employees</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Rooms">Rooms</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Customers">Customers</button></li>
+            <li role="presentation"><button class="btn btn-md btn-primary btn-block" routerLink="/Logistics">Logistics</button></li>
+            
+            
+    </ul>
+   
+         <!-- /container -->
+       <!--   <div class="col-sm-2">
+                <br>
+                <br>
+                <br>
+                <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Announcements">Announcements</button></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Employees">Employees</button></div>
+        </div>
+        <br>
+        <div class="row" >
+          <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Rooms">Rooms</button></div>
+          
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Customers">Customers</button></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-md btn-primary btn-block" routerLink="/Logistics">Logistics</button></div>
+        </div>
+     </div> -->
+     <div class="col-sm-12  table-responsive">
+      
+      
+      
+      <section>
+
+            <h2 class="text-center text-info" rowspan="4" colspan="12">Employees</h2>
+            <br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            
+                            
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success"
+                                (click)="addRecordPlugin()">Add Employee</button>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-warning" 
+                                (click)="removeAllselectedAnn()">Delete Selected Employees</button>
+                        </div>
+                        <div class="form-group pull-right">
+                            <label class="" for="PageSize">Page Size</label>
+                            <select class="form-control" name="pageSize" 
+                                [(ngModel)]="table.pageSize">
+                                <option [ngValue]="5">5</option>
+                                <option [ngValue]="10">10</option>
+                                <option [ngValue]="15">15</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-bordered table-hover table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"
+                                            (change)="changedActiveStatus($event)"
+                                            [checked]="selectALL">
+                                        Select All
+                                    </label>
+                                </div>
+                                </th>
+                                <th ><div ><h4>Employee ID</h4>
+                                    <input  type="text" name="Search" class="form-control" placeholder="Search Emp ID" 
+                                        [(ngModel)]="table.searchValue.Emp_Id"/></div></th>
+                                <th>
+                                    <div>
+                                        <h4>Username</h4>
+                                        <input style="display:inline" type="text" name="Search" class="form-control" placeholder="Search Username" 
+                                        [(ngModel)]="table.searchValue.username"/>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div>
+                                        <h4>First name</h4>
+                                        <input style="display:inline" type="text" name="Search" class="form-control" placeholder="Search First Name" 
+                                        [(ngModel)]="table.searchValue.First_name"/>
+                                    </div>
+                                </th>
+                                <th> 
+                                    <div>
+                                        <h4>Last Name</h4>
+                                        <input style="display:inline" type="text" name="Search" class="form-control" placeholder="Search Last Name" 
+                                        [(ngModel)]="table.searchValue.Last_name"/>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div>
+                                        <h4>Email</h4>
+                                        <input style="display:inline" type="text" name="Search" class="form-control" placeholder="Search Email" 
+                                        [(ngModel)]="table.searchValue.Email"/>
+                                    </div>
+                                </th>
+                                <th> 
+                                    <div>
+                                        <h4>Branch</h4>
+                                        <input style="display:inline" type="number" name="Search" class="form-control" placeholder="Search Branch"
+                                        [(ngModel)]="table.searchValue.Branch_Id"/>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div>
+                                        <h4>Role</h4>
+                                        <input style="display:inline" type="number" name="Search" class="form-control" placeholder="Search Role"
+                                        [(ngModel)]="table.searchValue.Role"/>
+                                    </div>
+                                </th>
+                                
+                                   
+                                
+                                <!-- <th>Name</th> -->
+                                <th colspan="2"><div><h4>Actions</h4></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="!table.totalFilteredRows">
+                                <td colspan="10" class="text-center">No records found.</td>
+                            </tr>
+                            <tr *ngFor="let user of table.itemsOnCurrentPage">
+                                <td >
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" 
+                                            [(ngModel)]="user.active">
+                                        </label>
+                                    </div>
+                                </td>
+                                <td >
+                                    <div *ngIf="!editingData[user.userId]">{{user.Emp_Id}}</div>
+                                    <div *ngIf="editingData[user.userId]"><span><input type="text" [(ngModel)]="user.Emp_Id" /></span></div>
+                                </td>
+                                <td>
+                                    <div *ngIf="!editingData[user.userId]">{{user.username}}</div>
+                                    <div *ngIf="editingData[user.userId]"><span><input type="text" [(ngModel)]="user.username" /></span></div>
+                                </td>
+                                <td>
+                                        <div *ngIf="!editingData[user.userId]">{{user.First_name}}</div>
+                                        <div *ngIf="editingData[user.userId]"><span><input type="text" [(ngModel)]="user.First_name" /></span></div>
+                                </td>
+                                <td>
+                                        <div *ngIf="!editingData[user.userId]">{{user.Last_name}}</div>
+                                        <div *ngIf="editingData[user.userId]"><span><input type="text" [(ngModel)]="user.Last_name" /></span></div>
+                                </td>
+                                <td>
+                                        <div *ngIf="!editingData[user.userId]">{{user.Email}}</div>
+                                        <div *ngIf="editingData[user.userId]">
+                                            <span><input type="text" [(ngModel)]="user.Email" /></span>
+                                            
+                                        </div>
+                                </td>
+                                <td>
+                                        <div *ngIf="!editingData[user.userId]">{{user.Branch_Id}}</div>
+                                        <div *ngIf="editingData[user.userId]">
+                                            <!-- <input type="text" [(ngModel)]="user.Branch_Id" /> -->
+                                            <select class="form-control" name="Branch" 
+                                                [(ngModel)]="user.Branch_Id">
+                                                <option [ngValue]="1">Trinity House</option>
+                                                <option [ngValue]="2">White House</option>
+                                                <option [ngValue]="3">Novelty House</option>
+                                            </select>
+                                        </div>
+                                </td>
+                                <td>
+                                        <div *ngIf="!editingData[user.userId]">{{user.Role}}</div>
+                                        <!-- <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.Role" /></div> -->
+                                        <div *ngIf="editingData[user.userId]">
+                                                <select class="form-control" name="Role" 
+                                                    [(ngModel)]="user.Role">
+                                                    <option [ngValue]="1">Admin</option>
+                                                    <option [ngValue]="2">Employee</option>
+                                                </select> 
+                                        </div>
+                                </td>
+                               <!--  <div *ngIf="!editingData[user.userId]">{{user.First_name}}</div>
+                                <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.First_name" /></div>
+                                <div *ngIf="!editingData[user.userId]">{{user.Last_Name}}</div>
+                                <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.Last_Name" /></div>
+                                <div *ngIf="!editingData[user.userId]">{{user.Email}}</div>
+                                <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.Email" /></div>
+                                <div *ngIf="!editingData[user.userId]">{{user.Branch}}</div>
+                                <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.Branch" /></div>
+                                <div *ngIf="!editingData[user.userId]">{{user.Role}}</div>
+                                <div *ngIf="editingData[user.userId]"><input type="text" [(ngModel)]="user.Role" /></div>
+                            </td> -->
+                                <!-- <td>{{user.name}}</td> -->
+                                <td >
+                                    <button *ngIf="!editingData[user.userId]" class="btn btn-primary btn-sm"
+                                        (click)="editRecordPlugin(user)">Edit</button>
+                                    <button *ngIf="editingData[user.userId]" class="btn btn-primary btn-sm"
+                                        (click)="saveRecordPlugin(user)">Save</button>
+                                    <button *ngIf="!editingData[user.userId]" class="btn btn-danger btn-sm"
+                                        (click)="removeRecordPlugin(user)">Delete</button>
+                                  
+                                    <button *ngIf="editingData[user.userId]" class="btn btn-primary btn-sm"
+                                        (click)="canceleditRecordPlugin(user)">Cancel</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <pagination [maxPageIndex]="table.maxPageIndex" 
+                        (pageNumberChanged)="table.currentPageIndex = $event">
+            </pagination>
+            
+        
+           <!--  <div class="row">
+                <div class="col-xs-12">            
+                    <pre>
+                        <h3>Recently deleted users</h3>{{recentlyRemoveUsers | json}}
+                    </pre>
+                </div>
+            </div> -->
+
+
+            <toaster-container [toasterconfig]="config1"></toaster-container>
+
+
+      </section>
+     </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
